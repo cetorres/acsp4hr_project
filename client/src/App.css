@@ -1,0 +1,7 @@
+.error-message {
+  display: block;
+}
+
+.error-message:first-letter {
+  text-transform: capitalize;
+}

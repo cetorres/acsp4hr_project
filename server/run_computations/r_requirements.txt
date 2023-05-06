@@ -1,0 +1,9 @@
+# For car
+# sudo apt-get update
+# sudo apt-get install r-cran-car
+
+install.packages('data.table')
+install.packages('minqa')
+install.packages('car')
+install.packages('lmPerm')
+install.packages('effsize')
