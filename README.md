@@ -1,4 +1,4 @@
-# ACSP4HR
+# ACSP4HR - SPDS
 
 ![SPDS_01](images/spds_01.png)
 
@@ -8,7 +8,7 @@ This system (SPDS) is part of a research project called ACSP4HR - Assuring Cyber
 
 The system is currently accessible at: <https://acsp4hr.ml>
 
-SPDS is a secure and privacy-preserving data sharing system for data science computations toward the scientific community that actually `does not share the data`. The main goal is to provide a way to securely and privately share datasets that can still be used to run data science computations for research, but without the data itself never been disclosed, just the computations results.
+SPDS (Secure and Privacy-Preserving Data Sharing for Data Science Computations) is a secure and privacy-preserving data sharing system for data science computations toward the scientific community that actually `does not share the data`. The main goal is to provide a way to securely and privately share datasets that can still be used to run data science computations for research, but without the data itself never been disclosed, just the computations results.
 In addition, the system provides secure authentication for users (for integrity) and a workflow for permission management to access datasets. This allows users to request access and dataset owners to grant or reject it, placing the control of the datasets in their hands.
 
 The system usage is very straightforward to facilitate any person without much knowledge in data science to utilize it. Users are able to browse and search datasets using keywords that match the metadata associated to them (added by the owners). More information about a dataset can be viewed, but only the metadata, along with the variables (or features) that describe the data, but never the data itself. Then, if a dataset interests a user, they can request access to it. The owner of the dataset receives the request, analyzes it, and grant or reject it. If granted, the user that requested can now run computations on it from a list of available, pre-created, and pre-vetted computations on the system. The datasets are stored on the server always encrypted, never shared or transmitted via network, and only decrypted locally and temporarily for computations processing. More details about the whole system workflow, dataset encryption, and computations process will be explained later on the next sections.
