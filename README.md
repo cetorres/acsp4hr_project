@@ -42,9 +42,9 @@ The database used is Postgres DB.
 ## Structure of the project
 
 - client
-  - The frontend application in React.
+  - The frontend application in [React](https://react.dev).
 - server
-  - The server API in Nest JS.
+  - The server API in [Nest JS](https://nestjs.com) with [Postgres DB](https://www.postgresql.org).
 
 ## Server setup
 
