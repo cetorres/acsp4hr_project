@@ -4,7 +4,7 @@
 
 More screenshots: [Screenshot 2](images/spds_02.png), [Screenshot 3](images/spds_03.png), [Screenshot 4](images/spds_04.png)
 
-This system (SPDS) is part of a research project called ACSP4HR - Assuring Cyber Security and Privacy for Human Resilience. It is sponsored by [UCCS](https://uccs.edu) and the [NSF](https://www.nsf.gov/). And it is part of my PhD research.
+This system (SPDS) is part of a research project called ACSP4HR - Assuring Cyber Security and Privacy for Human Resilience. It is sponsored by [UCCS](https://uccs.edu) and the [NSF](https://www.nsf.gov/) and it is part of my PhD research.
 
 The system is currently accessible at: <https://acsp4hr.ml>
 
