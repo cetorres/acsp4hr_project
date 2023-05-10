@@ -23,9 +23,31 @@ The main problem this work aim to solve is securing and preserving privacy of sc
 ## Usage scenario
 
 ![SPDS_USAGE](images/Scenario_1_v3.png)
+
+The scenario demonstrates how users who own datasets may publish them, and how other users can request access to these available datasets that fit their search criteria through a secure data-sharing system. The steps below the scenario from the perspective of Alice (dataset owner) and Bob (requester).
+
+- `Step 1`: Alice publishes a dataset she owns with a brief description of what data it contains, its purpose, data format, attributes, and other information as the metadata. This metadata will then be available for other users in the system to browse, among all the available datasets.
+- `Step 2`: Bob, who needs access to a dataset for his research project, can browse, view all available datasets' metadata using search filters. The search results will show all the datasets with metadata that meets Bob's search criteria. After Bob finds that Alice's dataset fits his needs, he sends an access request to Alice.
+- `Step 3`: Alice receives a notification of the request and responds to it by accepting, rejecting, or requesting more information from Bob, such as more details about his research needs and his use of the dataset. Bob will have access to the dataset if his request is accepted. If Alice requests more information from Bob, then Bob will respond accordingly and wait for Alice's decision.
+- `Step 4`: Bob may need to respond with more information that Alice may have requested. After Bob's request is accepted, he can run computations on the dataset. It is important that dataset requesters like Bob cannot view or download Alice's dataset --- they can only run computation on the dataset in the data-sharing system's runtime environment, and visualize the results. The contents of Alice's dataset are never disclosed to anyone.
+- `Step 5`: Bob browses a list of available computation, selects a subset, and execute the selected computation using Alice's dataset.
+- `Step 6`: To run a computation, the system internally retrieves the dataset, temporarily decrypts it, and runs queries to provide data to the computation.
+- `Step 7`: After the computation is done, the system saves the computation results for Bob to view and retrieve. The computation results are all Bob can see.
+
 ## System architecture
 
 ![SPDS_ARCH](images/System_Architecture_v6.png)
+
+- Client
+  - For the frontend UI, we are using [React JS](https://react.dev), an industry leading reactive web user interface framework originally created by Facebook. It can be used as the front end UI, where the users will be able to interact with the system visually and securely authenticated.
+- Backend API
+  - The backend API is based on [NodeJS](https://nodejs.org) with another layer using [NestJS](https://www.nestjs.com), is an open-source, widely-used NodeJS framework for building efficient, reliable and scalable server-side applications. It can be used as the server API of the front-end UI application, providing secure authentication, access to the application's functionalities, and interacting with the databases.
+- File server
+  - The file server is going to store the datasets files, accessible
+to the backend API, and always encrypted, using a cryptosystem secure against an adaptive chosen-ciphertext attack (IND-CCA) called AES-GCM.
+- Database
+  - We are using [Postgres DB](https://www.postgresql.org), a powerful, open-source object-relational database system with active development and has earned a strong reputation for reliability, feature robustness, and performance. It can be used to store non-sensitive data, like data files metadata, access requests, activity logs, and
+participant consent revocations.
 
 ## Encryption model
 
@@ -35,9 +57,40 @@ This is the client-server encryption scheme that we created for the system.
 
 ## Database design
 
-The database used is Postgres DB.
+The database used is [Postgres DB](https://www.postgresql.org).
 
 ![SPDS_DB](images/database_design_v3.png)
+
+### Tables descriptions
+
+- `users`
+  - Stores all the users of the system, with regular and admin roles.
+- `datasets`
+  - Stores the datasets information and metadata. 
+- `variables`
+  - Stores variables (features) associated to each dataset.
+- `favorites`
+  - Stores the favorite datasets of a user.
+- `requests`
+  - Stores the requests a user makes to get access to a dataset.
+- `computations`
+  - Stores the list of available computations the users can choose from to run.
+- `computation_runs`
+  - Stores the results of the computations a user runs over a dataset.
+
+### Relationships
+
+| Relationship             | Type         |
+|--------------------------|--------------|
+| users - datasets         | one to many  |
+| users - favorites        | one to many  |
+| users - requests         | one to many  |
+| users - computation_runs | one to many  |
+| datasets - variables     | one to many  |
+| datasets - favorites     | many to many |
+| requests - datasets      | one to one   |
+| requests - computations_runs  | one to many  |
+| computations - computation_runs | one to many  |
 
 ## Structure of the project
 
@@ -62,6 +115,8 @@ Create a file `server/.env` based on `server/.env.example` with your server conf
 - Sendgrid secrets (you can create a free SendGrid account)
   - VERIFIED_EMAIL_FROM=
   - SENDGRID_API_KEY=
+
+Once the `.env` file is configured with all settings, you can run the server following the directions below. Make sure you configure the database access correctly. It will run the migrations on the database automatically on the first time, creating all tables, indexes, and relationships.
 
 ## Deployment
 
