@@ -116,7 +116,11 @@ Create a file `server/.env` based on `server/.env.example` with your server conf
   - VERIFIED_EMAIL_FROM=
   - SENDGRID_API_KEY=
 
+### Database
+
 Once the `.env` file is configured with all settings, you can run the server following the directions below. Make sure you configure the database access correctly. It will run the migrations on the database automatically on the first time, creating all tables, indexes, and relationships.
+
+When you access the application for the first time, you can create your user via the frontend normally. But then go to the database directly and mark that user as `admin`, so you will have access on the application to create users, computations, and maintain the whole application.
 
 ## Deployment
 
