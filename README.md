@@ -4,7 +4,7 @@
 
 More screenshots: [Screenshot 2](images/spds_02.png), [Screenshot 3](images/spds_03.png), [Screenshot 4](images/spds_04.png)
 
-This system (SPDS) is part of a research project called ACSP4HR - Assuring Cyber Security and Privacy for Human Resilience. It is sponsored by [UCCS](https://uccs.edu) and the [NSF](https://www.nsf.gov/) and it is part of my PhD research.
+This system (SPDS) is part of a research project called ACSP4HR - Assuring Cyber Security and Privacy for Human Resilience. It is sponsored by [UCCS](https://uccs.edu) and the [NSF](https://www.nsf.gov/) and it is part of my [PhD in Computer Science](https://eas.uccs.edu/cs/academics/graduate-programs/phd-in-engineering-concentration-in-computer-science) research at [UCCS](https://uccs.edu).
 
 The system is currently accessible at: <https://acsp4hr.ml>
 
@@ -20,7 +20,7 @@ The scientific research community often needs to share datasets to spread scient
 
 The main problem this work aim to solve is securing and preserving privacy of scientific data during its sharing process. That is a real problem that can even avoid some important research dataset to be shared. So this work brings a solution to this problem, by allowing data sharing without actually having to share the data, but only the permission to run computation on it and see the results. So the data is always preserved.
 
-## Usage scanario
+## Usage scenario
 
 ![SPDS_USAGE](images/Scenario_1_v3.png)
 ## System architecture
@@ -29,7 +29,7 @@ The main problem this work aim to solve is securing and preserving privacy of sc
 
 ## Encryption model
 
-This is the client-server encryption scheme that we use.
+This is the client-server encryption scheme that we created for the system.
 
 ![SPDS_MODEL](images/Client_Server_Encryption_v2.png)
 
