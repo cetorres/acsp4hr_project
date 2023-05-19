@@ -224,6 +224,30 @@ The server code is organized inside `./server` like this:
 
 This software is licensed under the [MIT License](LICENSE).
 
+
+## Lines of code
+
+I used [gcloc](https://github.com/JoaoDanielRufino/gcloc) to count the lines of code of this project. The result is below. It excludes third-party modules (node_modules).
+
+```
+--------------------------------------------------------------------
+   Language  | Files | Lines | Blank lines | Comments | Code lines
+-------------+-------+-------+-------------+----------+-------------
+  Json       |    12 | 24919 |           0 |        0 |      24919
+  TypeScript |   206 | 12772 |        1243 |      112 |      11417
+  JavaScript |    72 |  5104 |          54 |       94 |       4956
+  HTML       |     7 |   657 |          74 |        0 |        583
+  CSS        |     4 |   233 |          13 |        9 |        211
+  Markdown   |     1 |   258 |          65 |        0 |        193
+  Python     |     1 |   124 |           9 |        0 |        115
+  R          |     2 |   186 |          25 |       75 |         86
+  XML        |     1 |    36 |           0 |        0 |         36
+  Plain Text |     2 |    13 |           1 |        0 |         12
+-------------+-------+-------+-------------+----------+-------------
+    Total    |  308  | 44302 |    1484     |   290    |   42528
+-------------+-------+-------+-------------+----------+-------------
+```
+
 ## Team
 
 University of Colorado - Colorado Springs (<https://uccs.edu>)
