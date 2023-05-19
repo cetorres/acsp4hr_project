@@ -99,9 +99,33 @@ The database used is [Postgres DB](https://www.postgresql.org).
 - server
   - The server API in [Nest JS](https://nestjs.com) with [Postgres DB](https://www.postgresql.org).
 
+
+## System requirements
+
+### client
+
+- The client application requires:
+  - Node.JS v.16.13.1+
+  - React v.18.2+
+  - Operating system:
+    - Production: Linux (e.g. Ubuntu v.22.04 LTS)
+    - Development: Linux, MacOS, Windows
+
+### server
+
+- The server application requires:
+  - Node.JS v.16.13.1+
+  - PostgreSQL v.15+
+  - Operating system:
+    - Production: Linux (e.g. Ubuntu v.22.04 LTS)
+    - Development: Linux, MacOS, Windows
+  - Python v.3.10+ installed (requirements.txt for needed libraries)
+  - R v.4.2.3+ installed (r_requirements.txt for needed libraries)
+
+
 ## Server setup
 
-Create a file `server/.env` based on `server/.env.example` with your server configuration for:
+With all system requirements installed and running on the server (and on the development machine if you want). Create a file `server/.env` based on `server/.env.example` with your server configuration for:
 
 - Database secrets and server
   - DB_TYPE=postgres
@@ -126,20 +150,79 @@ When you access the application for the first time, you can create your user via
 
 To build the applications and deploy, run the following commands:
 
-client
+### client
 
 ```sh
 npm --prefix client install
 npm --prefix client run build
 ```
 
-server
+### server
 
 ```sh
 npm --prefix server install
 npm --prefix server run build
 npm --prefix server run start:prod
 ```
+
+## Code changes
+
+If you desire to change the code you'll need to know how to develop for web (full stack). You need to know the requirements (e.g. React, Node.JS, Nest.JS) and TypeScript, as the language used on both client and server applications.
+
+### client
+
+The code for the client application is organized inside `./client/src` like this:
+
+- api
+  - All the request calls to the server API to get/post data from/to the server.
+- assets
+  - Empty for now. Needed if you want to add static files (e.g. images, CSS).
+- components
+  - All the reusable components used by the pages.
+- contexts
+  - The contexts (Context API) used throught the application to manage global state.
+- pages
+  - Contains all the application's web pages
+
+### server
+
+The server code is organized inside `./server` like this:
+
+- dataset_files
+  - Folder that stores all the uploaded dataset files encrypted.
+- dataset_files_temp
+  - Temporary storage for dataset files that are uploaded.
+- dataset_plot_images
+  - Stores all the plot images resulted from the computations.
+- dist
+  - Where the built application is stored when running in production.
+- run_computations
+  - Stores the computations files (Python and R scripts) used by the application's computations.
+- src
+  - auth
+    - Authentication API (decorators, dto, enums, guards, strategies, controllers, services, modules).
+  - computations
+    - Computations API (dto, entities, controller, service, module).
+  - dashboard
+    - Dashboard API (controller, service, module).
+  - datasets
+    - Datasets API (dto, entities, controller, service, module).
+  - helpers
+    - Helper functions used by the other components.
+  - requests
+    - Requests API (dto, entities, controller, service, module).
+  - tasks
+    - Scheduled tasks API (service, module).
+  - users
+    - Users API (dto, entities, controller, service, module).
+  - utils
+    - Util functions used by the other components.
+  - vault
+    - Legacy code when Hashicorp Vault was being considered to be used. Not used by this application version.
+
+## License
+
+This software is licensed under the [MIT License](LICENSE).
 
 ## Team
 
