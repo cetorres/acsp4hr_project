@@ -71,7 +71,7 @@ export const FavoriteDatasetsPage = () => {
                         </TableCell>
                         <TableCell onClick={() => handleGoToDataset(favorite.dataset.id)}>{favorite.dataset.description ?? '-'}</TableCell>
                         <TableCell onClick={() => handleGoToDataset(favorite.dataset.id)}>{favorite.dataset.rows ?? '0'}</TableCell>
-                        <TableCell onClick={() => handleGoToDataset(favorite.dataset.id)}>{favorite.user ? `${favorite.user?.firstName} ${favorite.user?.lastName}` : '-'}</TableCell>
+                        <TableCell onClick={() => handleGoToDataset(favorite.dataset.id)}>{favorite.dataset?.__user__ ? `${favorite.dataset?.__user__?.firstName} ${favorite.dataset?.__user__?.lastName}` : '-'}</TableCell>
                         <TableCell onClick={() => handleGoToDataset(favorite.dataset.id)}>{favorite.dataset.createdAt ? new Date(favorite.dataset.createdAt)?.toLocaleString() : '-'}</TableCell>
                       </TableRow>
                     ))}

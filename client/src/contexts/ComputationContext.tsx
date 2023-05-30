@@ -130,19 +130,23 @@ export const ComputationContextProvider = (props: any) => {
     let computations = isAdmin ? state.computationsAdmin : state.computations;
     let total = 0;
 
+    setState((prevState) => ({
+      ...prevState,
+      loading: true
+    }));
+
     if ((isAdmin && state.computationsAdmin == null) || (!isAdmin && state.computations == null)) {
       [computations, total] = await getComputations(isAdmin);
     }
 
     const computation = computations?.find((d) => d.id == computationId);
     if (computation != null && !forceUpdate) {
+      setState((prevState) => ({
+        ...prevState,
+        loading: false
+      }));
       return computation;
     }
-
-    setState((prevState) => ({
-      ...prevState,
-      loading: true
-    }));
 
     const data = await Computations.getComputation(computationId);
     computations = computations?.map((c) => c.id == data?.id ? data : c) as Computation[] | null;

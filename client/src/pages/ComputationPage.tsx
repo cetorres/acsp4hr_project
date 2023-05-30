@@ -16,7 +16,7 @@ import { oneDark, oneLight } from "react-syntax-highlighter/dist/esm/styles/pris
 export const ComputationPage = () => {
   const { getComputation, getComputationScript, isLoading } = useComputation();
   const { computationId } = useParams();
-  const [computation, setComputation] = useState(null as unknown as Computation | null);
+  const [computation, setComputation] = useState({} as unknown as Computation | null);
   const [computationScript, setComputationScript] = useState(null as unknown as string | null);
   const [scriptLanguage, setScriptLanguage] = useState('');
   const [scriptStyle, setScriptStyle] = useState('light' as 'light' | 'dark');
@@ -48,16 +48,18 @@ export const ComputationPage = () => {
 
   return (
     <MainPageContainer title={'Computation'}>
-      {isLoading() ? (
+      {isLoading() && computation == null ? (
 				<PageLoading />
-			) : computation == null ? (
+      )
+        : !isLoading() && computation == null ? (
 				<EmptyData
 					title="Computation not found"
 					buttonTitle="Go to Computations"
 					icon={<Calculate />}
 					buttonClick={() => navigate('/computations')}
 				/>
-        ) : (
+        )
+          : (
           <>
             <Box sx={{ marginTop: 3 }}>
               <Grid container spacing={4} alignItems="flex-start">

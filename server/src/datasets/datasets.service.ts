@@ -122,10 +122,7 @@ export class DatasetsService {
 
   async getFavorites(userId: number) {
     const [records, total] = await this.favoriteRepository.findAndCount({
-      relations: {
-        user: true,
-        dataset: true
-      },
+      relations: ['user', 'dataset.user'],
       where: {
         user: { id: userId },
         dataset: { isActive: true }
@@ -140,6 +137,10 @@ export class DatasetsService {
           name: true,
           description: true,
           rows: true,
+          user: {
+            firstName: true,
+            lastName: true
+          },
           createdAt: true,
           updatedAt: true
         }

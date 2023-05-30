@@ -4,7 +4,7 @@
   "description": "SPDS UI Client",
   "author": "Carlos E. Torres",
   "version": "1.0",
-  "buildNumber": 0,
+  "buildNumber": 1,
   "buildDate": "2023-04-06T21:28:30.703Z",
   "type": "module",
   "scripts": {

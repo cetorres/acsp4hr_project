@@ -61,7 +61,7 @@ export default function FavoritesSummary() {
                     <TableCell onClick={() => handleGoToDataset(favorite.dataset?.id)}>
                         {favorite.dataset?.rows}
                     </TableCell>
-                    <TableCell onClick={() => handleGoToDataset(favorite.dataset?.id)}>{favorite.user? `${favorite.user?.firstName} ${favorite.user?.lastName}` : '-'}</TableCell>
+                    <TableCell onClick={() => handleGoToDataset(favorite.dataset?.id)}>{favorite.dataset?.__user__? `${favorite.dataset?.__user__?.firstName} ${favorite.dataset?.__user__?.lastName}` : '-'}</TableCell>
                     <TableCell onClick={() => handleGoToDataset(favorite.dataset?.id)}>{favorite.createdAt ? new Date(favorite.createdAt)?.toLocaleString() : '-'}</TableCell>
                   </TableRow>
                 ))}
