@@ -29,6 +29,7 @@ export class UsersService {
 
       userCreateDto.password = hashedPassword;
       userCreateDto.salt = salt;
+      userCreateDto.secureToken = this.generateRandomSecureToken();
 
       const newUser = this.userRepository.create(userCreateDto);
       await this.userRepository.save(newUser);

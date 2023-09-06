@@ -28,4 +28,8 @@ export class AuthRegisterDto {
   @IsOptional()
   @IsString()
   salt?: string;
+
+  @IsOptional()
+  @IsString()
+  secureToken?: string;
 }
