@@ -2,18 +2,29 @@
 args = commandArgs(trailingOnly=TRUE)
 
 # Check for the arguments
-if (length(args)<2) {
-  stop("Please inform the dataset file (.csv) and the user id.", call.=FALSE)
+if (length(args)<3) {
+  stop("Please inform the dataset file (.csv), the user id, and the variables.", call.=FALSE)
 }
 
 library(data.table)                         # For fread()
-fread(args[1],                        # Must be in working directory
+fread(args[1],                              # Must be in working directory
       sep = ',',                            # comma separating columns
       header = TRUE) ->                     # Columns have headers
   df                                        # R assignment goes either
                                             #  direction; this feels more
                                             #  natural to me, but I'm in the
                                             #  minority.
+
+# Get the variables passed via arguments.
+#  The independent (predictor) variable goes into x, and
+#  the dependent (outcome) variable goes into y.
+variables = strsplit(args[3], ",")
+variables = unlist(variables)
+if (length(variables) < 2) {
+  stop("Please inform 2 variables.", call.=FALSE)
+}
+df[[variables[1]]] -> x
+df[[variables[2]]] -> y
 
 # Plot filename
 plot_path = "./dataset_plot_images/"
@@ -26,15 +37,15 @@ pdf(plot_filepath)
 
 # Let's look at the data. Most people would just jump in, but exploratory
 #  data analysis is important.
-if(is.numeric(df$x) == TRUE &         # Need numbers, not characters, etc.
-   is.numeric(df$y) == TRUE) {
-  plot(df$x,                          # x-axis variable
-       df$y,                          # y-axis variable
-       main = paste(colnames(df$y),   # Main title for graph, concatenated
+if(is.numeric(x) == TRUE &         # Need numbers, not characters, etc.
+   is.numeric(y) == TRUE) {
+  plot(x,                          # x-axis variable
+       y,                          # y-axis variable
+       main = paste(colnames(y),   # Main title for graph, concatenated
                     "vs",             #  with a space between items
-                    colnames(df$x)),  # paste0() does it with no space
-       xlab = colnames(df$x),         # label for x-axis
-       ylab = colnames(df$y), 
+                    colnames(x)),  # paste0() does it with no space
+       xlab = colnames(x),         # label for x-axis
+       ylab = colnames(y), 
        pch = 16,                      # I like dots better than the default
        cex = 0.5)                     # Make the dots half-size
 }
