@@ -14,6 +14,13 @@ In addition, the system provides secure authentication for users (for integrity)
 The system usage is very straightforward to facilitate any person without much knowledge in data science to utilize it. Users are able to browse and search datasets using keywords that match the metadata associated to them (added by the owners). More information about a dataset can be viewed, but only the metadata, along with the variables (or features) that describe the data, but never the data itself. Then, if a dataset interests a user, they can request access to it. The owner of the dataset receives the request, analyzes it, and grant or reject it. If granted, the user that requested can now run computations on it from a list of available, pre-created, and pre-vetted computations on the system. The datasets are stored on the server always encrypted, never shared or transmitted via network, and only decrypted locally and temporarily for computations processing. More details about the whole system workflow, dataset encryption, and computations process will be explained later on the next sections.
 
 A `paper` is being written to formalize all the scientific aspects of the project. It will be made available here once is done.
+
+## Events and presentations
+
+The project has been presented in the following events:
+
+- ISTSS (International Society for Traumatic Stress Studies) 39th Annual Meeting, Oct. 2023. The event's [program](https://istss.org/am23/program) is available online. The slides of the presentation can be found at the [events](/events) folder.
+
 ## Problem statement
 
 The scientific research community often needs to share datasets to spread scientific data results that can help other groups in their own research. But often these datasets contain private information from subjects that may not have consented for their information to be publicly disclosed. Thus, many datasets end up not being shared at all, or they are data blinded to strip, sometimes, too much person-identifiable information, decreasing the quality of the data.
