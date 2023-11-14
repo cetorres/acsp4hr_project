@@ -256,6 +256,6 @@ University of Colorado - Colorado Springs (<https://uccs.edu>)
 
 Computer Science Department (<https://eas.uccs.edu/cs>)
 
-- Carlos Eugenio Torres (<carlos.torres@uccs.edu>) - Research Assistant - PhD student
+- Carlos Eugenio Torres (<carlos.torres@uccs.edu>) - Graduate Research Assistant - PhD student
 - Dr. Shouhuai Xu (<sxu@uccs.edu>) - Project PI
 - Dr. Yanyan Zhuang (<yzhuang@uccs.edu>) - Project Co PI
