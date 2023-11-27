@@ -151,11 +151,11 @@ With all system requirements installed and running on the server (and on the dev
 
 Once the `.env` file is configured with all settings, you can run the server following the directions below. Make sure you configure the database access correctly. It will run the migrations on the database automatically on the first time, creating all tables, indexes, and relationships.
 
-When you access the application for the first time, you can create your user via the fron-tend normally. But then go to the database directly and mark that user as `admin`, so you will have access to the application to create users, computations, and maintain the whole application.
+When you access the application for the first time, you can create your user via the front end normally. But then go to the database directly and mark that user as `admin`, so you will have access to the application to create users, computations, and maintain the whole application.
 
 ## Deployment
 
-To build the applications and deploy, run the following commands:
+To build the applications and deploy them, run the following commands:
 
 ### client
 
