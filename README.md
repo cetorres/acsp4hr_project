@@ -29,7 +29,8 @@ The main problem this work aims to solve is securing and preserving the privacy 
 
 ## Usage scenario
 
-![SPDS_USAGE](images/Scenario_1_v3.png)
+![SPDS_USAGE](https://github.com/cetorres/acsp4hr_project/assets/533661/6c68a075-5e6e-47e9-a688-52e66ffd7266)
+
 
 The scenario demonstrates how users who own datasets may publish them, and how other users can request access to these available datasets that fit their search criteria through a secure data-sharing system. The steps below the scenario from the perspective of Alice (dataset owner) and Bob (requester).
 
