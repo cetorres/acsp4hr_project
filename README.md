@@ -19,7 +19,7 @@ A `paper` is being written to formalize all the scientific aspects of the projec
 
 The project has been presented at the following events:
 
-- ISTSS (International Society for Traumatic Stress Studies) 39th Annual Meeting, Oct. 2023. The event's [program](https://istss.org/am23/program) is available online. The slides of the presentation can be found in the [events](/events) folder.
+- ISTSS (International Society for Traumatic Stress Studies) 39th Annual Meeting, Nov. 2023. The event's [program](https://istss.org/am23/program) is available online. The slides of the presentation can be found in the [events](/events) folder.
 
 ## Problem statement
 
